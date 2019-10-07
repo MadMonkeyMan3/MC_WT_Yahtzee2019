@@ -9,6 +9,7 @@ public class YahtzeeRunner {
 			System.out.println("Start tests");
 			// enter test code here.
 			System.out.println("End tests");
+			System.out.println("Will is a good programmer");
 		}
 		else
 		{
