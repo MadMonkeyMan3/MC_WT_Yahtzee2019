@@ -9,8 +9,10 @@ public class YahtzeeRunner {
 			System.out.println("Start tests");
 			// enter test code here.
 			Referee ref = new Referee();
-			int[] testArray = {0,0,0,0,0};
+			int[] testArray = {4,3,3,4,1};
 			ref.debugSetDice(testArray);
+			testArray = ref.debugGetDice();
+			System.out.println(""+testArray[0] + " " + testArray[1] + " " + testArray[2] + " " + testArray[3] + " " + testArray[4]);
 			System.out.println("End tests");
 		}
 		else

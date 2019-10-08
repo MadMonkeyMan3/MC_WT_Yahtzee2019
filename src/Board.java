@@ -125,7 +125,6 @@ public class Board {
 	public void debugSetDice(int a, int b, int c, int d, int e)
 	{
 		// ---------------------------
-		// TODO: write your code here.
 		diceArray [0] = a;
 		diceArray [1] = b;
 		diceArray [2] = c;
@@ -136,11 +135,11 @@ public class Board {
 	
 	public int[] debugGetDice()
 	{
-		int[] result = null; // temporary, so this compiles
+		// temporary, so this compiles
 		// ---------------------------
 		// TODO: write your code here.
 		
 		// ---------------------------
-		return result;
+		return diceArray;
 	}
 }
