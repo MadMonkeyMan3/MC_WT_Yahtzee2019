@@ -18,7 +18,7 @@ public class Referee {
 	{
 		//--------------------
 		// TODO: insert your code here.
-		
+		theBoard = new Board();
 		//--------------------
 	}
 	

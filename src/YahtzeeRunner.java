@@ -8,8 +8,10 @@ public class YahtzeeRunner {
 		{
 			System.out.println("Start tests");
 			// enter test code here.
+			Referee ref = new Referee();
+			int[] testArray = {0,0,0,0,0};
+			ref.debugSetDice(testArray);
 			System.out.println("End tests");
-			System.out.println("Does this work");
 		}
 		else
 		{

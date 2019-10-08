@@ -12,13 +12,20 @@
  */
 public class Board {
 
-	// TODO: decide which private member variables Board needs and declare them here. 
+	// TODO: decide which private member variables Board needs and declare them here.
 	//          HINT: See the note above!
+	private int[] diceArray;
+	private int[] valueArray;
 	
 	/**
 	 * constructor - set up initial values for the board.
 	 */
 	// TODO: write the Board's constructor
+	public Board ()
+	{
+		diceArray = new int[]{0, 0, 0, 0, 0};
+		int[] valueArray = {-1,0,0,0,0,0,0};
+	}
 	
 	/**
 	 * toString - creates a string depicting the dice on the board.
@@ -119,7 +126,11 @@ public class Board {
 	{
 		// ---------------------------
 		// TODO: write your code here.
-		
+		diceArray [0] = a;
+		diceArray [1] = b;
+		diceArray [2] = c;
+		diceArray [3] = d;
+		diceArray [4] = e;
 		// ---------------------------		
 	}
 	
