@@ -137,9 +137,8 @@ public class Board {
 	{
 		// temporary, so this compiles
 		// ---------------------------
-		// TODO: write your code here.
-		
-		// ---------------------------
 		return diceArray;
+		// ---------------------------
+
 	}
 }
