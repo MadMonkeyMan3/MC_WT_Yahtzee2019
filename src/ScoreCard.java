@@ -53,6 +53,7 @@ public class ScoreCard {
 	{
 		//--------------------
 		// TODO: insert your code here.
+		System.out.println(categories);
 		
 		//--------------------
 	}

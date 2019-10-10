@@ -24,7 +24,7 @@ public class Board {
 	public Board ()
 	{
 		diceArray = new int[]{0, 0, 0, 0, 0};
-		int[] valueArray = {-1,0,0,0,0,0,0};
+		valueArray = new int[]{-1,0,0,0,0,0,0};
 	}
 	
 	/**
@@ -126,7 +126,7 @@ public class Board {
 	{
 		// ---------------------------
 		diceArray [0] = a;
-		diceArray [1] = a;
+		diceArray [1] = b;
 		diceArray [2] = c;
 		diceArray [3] = d;
 		diceArray [4] = e;
