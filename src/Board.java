@@ -126,7 +126,7 @@ public class Board {
 	{
 		// ---------------------------
 		diceArray [0] = a;
-		diceArray [1] = b;
+		diceArray [1] = a;
 		diceArray [2] = c;
 		diceArray [3] = d;
 		diceArray [4] = e;
