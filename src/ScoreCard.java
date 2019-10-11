@@ -43,16 +43,7 @@ public class ScoreCard {
 	
 	
 	// TODO: decide which private member variables ScoreCard should have and create them here.
-	private int oneScore;
-	private int twoScore;
-	private int threeScore;
-	private int fourScore;
-	private int fiveScore;
-	private int sixScore;
-	private int threeOfAKindScore;
-	private int fourOfAKindScore;
-	private int fullHouseScore;
-	private int smallStraightScore;
+	private int[] Scores;
 
 
 	/**
@@ -64,7 +55,7 @@ public class ScoreCard {
 	{
 		//--------------------
 		// TODO: insert your code here.
-		System.out.println(categories);
+		Scores = new int[] {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
 		
 		//--------------------
 	}
@@ -93,7 +84,7 @@ public class ScoreCard {
 	{
 		//--------------------
 		// TODO: insert your code here.
-		
+		Scores[category] = score;
 		//--------------------
 	}
 	
@@ -104,10 +95,9 @@ public class ScoreCard {
 	 */
 	public int getScoreForCategory(int category)
 	{
-		int response = -1;
 		//--------------------
 		// TODO: insert your code here.
-		
+		int response = Scores[category];
 		//--------------------
 		return response;
 	}
@@ -118,10 +108,13 @@ public class ScoreCard {
 	 */
 	public int getTopSubtotal()
 	{
-		int subtotal = 0;
 		//--------------------
 		// TODO: insert your code here.
-		
+		int subtotal = 0;
+		for (int i = 0; i <=5; i++)
+		{
+			subtotal = subtotal + Scores[i];
+		}
 		//--------------------
 		return subtotal;
 	}
