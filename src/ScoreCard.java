@@ -128,9 +128,12 @@ public class ScoreCard {
 		int subtotal = 0;
 		//--------------------
 		// TODO: insert your code here.
-		
+		for (int i = 6; i <=13; i++)
+		{
+			subtotal = subtotal + Scores[i];
+		}
 		//--------------------
-		return subtotal;		
+		return subtotal;
 	}
 	/**
 	 * determines the bonus found in the top section.
@@ -141,14 +144,17 @@ public class ScoreCard {
 		int bonus = 0;
 		//--------------------
 		// TODO: insert your code here.
-		
+		if (getTopSubtotal() >= 63)
+		{
+			bonus = 35;
+		}
 		//--------------------
 		return bonus;
 	}
 	
 	public int getTotal()
 	{
-		int total = 0;
+		int total = getTopSubtotal() + getBottomSubtotal() + getTopBonus();
 		//--------------------
 		// TODO: insert your code here.
 		
