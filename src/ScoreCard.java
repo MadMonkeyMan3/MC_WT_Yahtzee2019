@@ -83,7 +83,6 @@ public class ScoreCard {
 	public void setScoreForCategory(int score, int category)
 	{
 		//--------------------
-		// TODO: insert your code here.
 		Scores[category] = score;
 		//--------------------
 	}
@@ -96,7 +95,6 @@ public class ScoreCard {
 	public int getScoreForCategory(int category)
 	{
 		//--------------------
-		// TODO: insert your code here.
 		int response = Scores[category];
 		//--------------------
 		return response;
@@ -109,7 +107,6 @@ public class ScoreCard {
 	public int getTopSubtotal()
 	{
 		//--------------------
-		// TODO: insert your code here.
 		int subtotal = 0;
 		for (int i = 0; i <=5; i++)
 		{
@@ -127,7 +124,6 @@ public class ScoreCard {
 	{
 		int subtotal = 0;
 		//--------------------
-		// TODO: insert your code here.
 		for (int i = 6; i <=13; i++)
 		{
 			subtotal = subtotal + Scores[i];
@@ -143,7 +139,6 @@ public class ScoreCard {
 	{
 		int bonus = 0;
 		//--------------------
-		// TODO: insert your code here.
 		if (getTopSubtotal() >= 63)
 		{
 			bonus = 35;
@@ -154,10 +149,8 @@ public class ScoreCard {
 	
 	public int getTotal()
 	{
-		int total = getTopSubtotal() + getBottomSubtotal() + getTopBonus();
 		//--------------------
-		// TODO: insert your code here.
-		
+		int total = getTopSubtotal() + getBottomSubtotal() + getTopBonus();
 		//--------------------
 		return total;
 	}
