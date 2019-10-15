@@ -41,8 +41,7 @@ public class ScoreCard {
 	public static final int CHANCE = 11;
 	public static final int YAHTZEE = 12;
 	
-	
-	// TODO: decide which private member variables ScoreCard should have and create them here.
+
 	private int[] Scores;
 
 
@@ -54,8 +53,8 @@ public class ScoreCard {
 	public ScoreCard()
 	{
 		//--------------------
-		// TODO: insert your code here.
-		Scores = new int[] {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
+
+		Scores = new int[] {0,0,0,0,0,0,0,0,0,0,0,0,0};
 		
 		//--------------------
 	}
@@ -69,8 +68,10 @@ public class ScoreCard {
 	{
 		boolean empty = true;
 		//--------------------
-		// TODO: insert your code here.
-		
+		if (Scores[category] != 0)
+		{
+			empty = false;
+		}
 		//--------------------
 		return empty;
 	}
@@ -124,7 +125,7 @@ public class ScoreCard {
 	{
 		int subtotal = 0;
 		//--------------------
-		for (int i = 6; i <=13; i++)
+		for (int i = 6; i <13; i++)
 		{
 			subtotal = subtotal + Scores[i];
 		}
@@ -174,17 +175,16 @@ public class ScoreCard {
 	{
 		String result = "";
 		//--------------------
-		// TODO: insert your code here.
 		for (int i = 0; i <= 5; i ++)
 		{
-			result = result + categories[i]+": "+Scores[i];
+			result = result + categories[i]+": "+Scores[i]+"\n";
 		}
-		result = result + "Top Subtotal: "+getTopSubtotal()+"\nTop Bonus: "+getTopBonus();
-		for (int i = 6; i <= 13; i ++)
+		result = result + "TOP        : "+getTopSubtotal()+"\nTOP BONUS  : "+getTopBonus()+"\n";
+		for (int i = 6; i < 13; i ++)
 		{
-			result = result + categories[i]+": "+Scores[i];
+			result = result + categories[i]+": "+Scores[i]+"\n";
 		}
-		result = result + "Bottom Subtotal: "+getBottomSubtotal()+ "\nTotal: "+getTotal();
+		result = result + "BOTTOM     : "+getBottomSubtotal()+ "\nTOTAL      : "+getTotal()+"\n";
 		//--------------------
 		return result;
 	}
