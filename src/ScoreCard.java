@@ -175,7 +175,16 @@ public class ScoreCard {
 		String result = "";
 		//--------------------
 		// TODO: insert your code here.
-		
+		for (int i = 0; i <= 5; i ++)
+		{
+			result = result + categories[i]+": "+Scores[i];
+		}
+		result = result + "Top Subtotal: "+getTopSubtotal()+"\nTop Bonus: "+getTopBonus();
+		for (int i = 6; i <= 13; i ++)
+		{
+			result = result + categories[i]+": "+Scores[i];
+		}
+		result = result + "Bottom Subtotal: "+getBottomSubtotal()+ "\nTotal: "+getTotal();
 		//--------------------
 		return result;
 	}
