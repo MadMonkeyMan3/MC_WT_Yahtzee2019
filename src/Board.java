@@ -106,11 +106,8 @@ public class Board {
 	 */
 	public int[] getFrequencies()
 	{
-		int [] result = null; // I just put this in here to compile - you can replace it.
-		// ---------------------------
-		// TODO: write your code here.
-		
-		// ---------------------------
+		int [] result = valueArray; // I just put this in here to compile - you can replace it.
+
 		return result;
 	}
 	

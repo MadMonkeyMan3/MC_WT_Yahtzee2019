@@ -1,3 +1,4 @@
+import java.util.Scanner;
 /**
  * The Referee class is in charge of keeping track of the Board (the dice)
  * and one or two ScoreCards, depending on how many players there are. It
@@ -7,10 +8,11 @@
  *
  */
 public class Referee {
-
+	private Scanner keyReader = new Scanner(System.in);
 	private ScoreCard[] myScoreCards; // one for each player
 	private Board theBoard;
-	
+
+	private String player0Name, player1Name;
 	/**
 	 * constructor - set up the Referee class
 	 */
@@ -50,14 +52,19 @@ public class Referee {
 	public void playGame()
 	{
 		System.out.println("Game is playing");// placeholder code.
-		//--------------------
-		// TODO: insert your code here.
-		// Note: I've added some methods to this class to get you
-		//      started, but I suspect you will need to make some
-		//      more of your own. Use this as a starting point.
-				
-				
-		//--------------------
+		System.out.print("Player 0, what is your name? ");
+		player0Name = keyReader.nextLine();
+		System.out.print("Player 1, what is your name? ");
+		player1Name = keyReader.nextLine();
+		boolean gameisplaying = true;
+		while(gameisplaying)
+		{
+			System.out.println(player0Name+" It's your turn.");
+			rollAllDice();
+			System.out.println(theBoard.getFrequencies());
+			gameisplaying = false;
+		}
+
 	}
 	
 	/**

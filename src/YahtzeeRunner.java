@@ -3,7 +3,7 @@ public class YahtzeeRunner {
 
 	public static void main(String[] args) {
 
-		boolean testingMode = true;
+		boolean testingMode = false;
 		if (testingMode)
 		{
 			System.out.println("Start tests");
