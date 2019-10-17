@@ -26,7 +26,10 @@ public class Board {
 		diceArray = new int[]{0, 0, 0, 0, 0};
 		valueArray = new int[]{-1,0,0,0,0,0,0};
 	}
-	
+
+	public int[] getDiceArray() {
+		return diceArray;
+	}
 	/**
 	 * toString - creates a string depicting the dice on the board.
 	 * @return a string depicting the dice.
@@ -99,18 +102,21 @@ public class Board {
 	 *    •getScoreForCategory(ScoreCard.LARGE_STRAIGHT) would return 0.
 	 */
 	// TODO: Write Board's getScoreForCategory method.
-	
+
+
+
 	/**
 	 * gets the list of die frequencies calculated in the updateFrequencies() method.
 	 * @return the list of frequencies.
 	 */
+
 	public int[] getFrequencies()
 	{
 		int [] result = valueArray; // I just put this in here to compile - you can replace it.
 
 		return result;
 	}
-	
+
 	/**
 	 * sets the 5 dice to specific values - this should be used for debugging purposes only.
 	 * @param a
