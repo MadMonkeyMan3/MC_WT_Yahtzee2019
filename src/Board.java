@@ -36,7 +36,7 @@ public class Board {
 	 */
 	public String toString()
 	{
-		String result = "\n";
+		String result = "";
 		result = result + "+---+---+---+---+---+ \n| A | B | C | D | E | \n+---+---+---+---+---+\n";
 		for (int i = 0; i < 5; i++)
 		{
