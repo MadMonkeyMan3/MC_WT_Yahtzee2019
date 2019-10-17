@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 /**
  * The Referee class is in charge of keeping track of the Board (the dice)
@@ -61,7 +62,7 @@ public class Referee {
 		{
 			System.out.println(player0Name+" It's your turn.");
 			rollAllDice();
-			System.out.println(theBoard.getFrequencies());
+			System.out.println(Arrays.toString(theBoard.getFrequencies()));
 			gameisplaying = false;
 		}
 
