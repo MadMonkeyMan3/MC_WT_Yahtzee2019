@@ -12,15 +12,12 @@
  */
 public class Board {
 
-	// TODO: decide which private member variables Board needs and declare them here.
-	//          HINT: See the note above!
 	private int[] diceArray;
 	private int[] valueArray;
 	
 	/**
 	 * constructor - set up initial values for the board.
 	 */
-	// TODO: write the Board's constructor
 	public Board ()
 	{
 		diceArray = new int[]{0, 0, 0, 0, 0};
@@ -37,10 +34,9 @@ public class Board {
 	 * | 1 | 1 | 4 | 1 | 4 |
 	 * +---+---+---+---+---+
 	 */
-	// TODO: write the Board's toString method
 	public String toString()
 	{
-		String result = "";
+		String result = "\n";
 		result = result + "+---+---+---+---+---+ \n| A | B | C | D | E | \n+---+---+---+---+---+\n";
 		for (int i = 0; i < 5; i++)
 		{
@@ -82,7 +78,16 @@ public class Board {
 	public void updateFrequencyList()
 	{
 		// ---------------------------
-		// TODO: write your code here.
+		for(int i = 1; i < valueArray.length; i++)
+        {
+            for(int j = 0; j < diceArray.length; i++)
+            {
+                if(diceArray[j] == i)
+                {
+                    valueArray[i]++;
+                }
+            }
+        }
 		
 		// ---------------------------
 	}
