@@ -14,6 +14,7 @@ public class Referee {
 	private Board theBoard;
 
 	private String player0Name, player1Name;
+
 	/**
 	 * constructor - set up the Referee class
 	 */
@@ -58,12 +59,16 @@ public class Referee {
 		System.out.print("Player 1, what is your name? ");
 		player1Name = keyReader.nextLine();
 		boolean gameisplaying = true;
+
 		while(gameisplaying)
 		{
 			System.out.println(player0Name+" It's your turn.");
 			rollAllDice();
-			System.out.println("Your Roll was "+Arrays.toString(theBoard.debugGetDice()));
-			System.out.println("Which would you like to roll?");
+			System.out.println("Your Roll was \n"+ (theBoard.toString()));
+
+			System.out.println("Which dice would you like to roll?");
+			theBoard.rollSelectedDice(keyReader.nextLine());
+
 			gameisplaying = false;
 
 		}
