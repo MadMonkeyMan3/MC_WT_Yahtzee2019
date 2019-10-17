@@ -14,6 +14,7 @@ public class Referee {
 	private Board theBoard;
 
 	private String player0Name, player1Name;
+
 	/**
 	 * constructor - set up the Referee class
 	 */
@@ -25,7 +26,7 @@ public class Referee {
 		myScoreCards = new ScoreCard[2];
 		//--------------------
 	}
-	
+
 	/**
 	 * roll all the dice at once, as in the start of a new turn.
 	 */
@@ -34,11 +35,11 @@ public class Referee {
 		// I've written this one for you. ;^)
 		rollDice("ABCDE");
 	}
-	
+
 	/**
 	 * roll some dice, as indicated
 	 * @param diceToRoll - a string that indicates which dice to roll. For instance,
-	 * "ADE" would mean to roll die A, die D and die E, without changing die B or 
+	 * "ADE" would mean to roll die A, die D and die E, without changing die B or
 	 * die C.
 	 */
 	public void rollDice(String diceToRoll)
@@ -46,7 +47,7 @@ public class Referee {
 		// I've written this one for you, too.
 		theBoard.rollSelectedDice(diceToRoll);
 	}
-	
+
 	/**
 	 * playGame - the main game loop for the Referee.
 	 */
@@ -58,16 +59,27 @@ public class Referee {
 		System.out.print("Player 1, what is your name? ");
 		player1Name = keyReader.nextLine();
 		boolean gameisplaying = true;
+		boolean turnisplaying = true;
 		while(gameisplaying)
 		{
 			System.out.println(player0Name+" It's your turn.");
 			rollAllDice();
-			System.out.println(Arrays.toString(theBoard.getFrequencies()));
-			gameisplaying = false;
+			System.out.println("Your Roll was \n"+ (theBoard.toString()));
+
+
+			while
+			System.out.println("Which dice would you like to roll?");
+			theBoard.rollSelectedDice(keyReader.nextLine());
+
+           System.out.println("Your Roll was \n"+ (theBoard.toString()));
+
+
+
+
 		}
 
 	}
-	
+
 	/**
 	 * displayBoardAndDice - does a s.o.p. to the screen, showing
 	 * the score card for the current player, the dice, and ABCDE
@@ -77,24 +89,24 @@ public class Referee {
 	{
 		//--------------------
 		// TODO: insert your code here.
-		
+
 		//--------------------
 	}
-	
+
 	//-------------------------------
 	// Code for debugging/testing only:
-	
+
 	public void debugSetDice(int[] inDice)
 	{
 		theBoard.debugSetDice(inDice[0], inDice[1], inDice[2], inDice[3], inDice[4]);
 		theBoard.updateFrequencyList();
 	}
-	
+
 	public int[] debugGetDice()
 	{
 		return theBoard.debugGetDice();
 	}
-	
+
 	public int[] debugGetTotals()
 	{
 		return theBoard.getFrequencies();

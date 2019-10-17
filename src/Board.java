@@ -57,6 +57,7 @@ public class Board {
 	 * @param - a string to parse. (e.g., "CE")
 	 * no return value - only internal variables are changed.
 	 */
+
 	public void rollSelectedDice(String stringToParse)
 	{
 		// I'm starting this one for you, since we haven't been splitting strings yet.
@@ -87,7 +88,7 @@ public class Board {
 		}
 	
 	}
-	
+
 	/**
 	 * recalculates the frequency list - how many 1s are showing on the dice? 
 	 *    How many 2s are showing? 3s? 4s? 5s? 6s?
