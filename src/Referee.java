@@ -69,7 +69,10 @@ public class Referee {
 			System.out.println("Which dice would you like to roll?");
 			theBoard.rollSelectedDice(keyReader.nextLine());
 
-			gameisplaying = false;
+
+           System.out.println("Your Roll was \n"+ (theBoard.toString()));
+
+
 
 		}
 
