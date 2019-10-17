@@ -62,17 +62,20 @@ public class Referee {
 		boolean turnisplaying = true;
 		while(gameisplaying)
 		{
+		    int turncounter = 0;
 			System.out.println(player0Name+" It's your turn.");
 			rollAllDice();
 			System.out.println("Your Roll was \n"+ (theBoard.toString()));
 
 
-			while
-			System.out.println("Which dice would you like to roll?");
-			theBoard.rollSelectedDice(keyReader.nextLine());
+			while(turnisplaying && turncounter < 3 )
+			{
+                System.out.println("Which dice would you like to roll?");
+                theBoard.rollSelectedDice(keyReader.nextLine());
+                System.out.println("Your Roll was \n" + (theBoard.toString()));
+                turncounter = turncounter + 1;
 
-           System.out.println("Your Roll was \n"+ (theBoard.toString()));
-
+            }
 
 
 
