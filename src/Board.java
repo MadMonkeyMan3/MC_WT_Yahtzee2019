@@ -38,7 +38,19 @@ public class Board {
 	 * +---+---+---+---+---+
 	 */
 	// TODO: write the Board's toString method
-	
+	public String toString()
+	{
+		String result = "";
+		result = result + "+---+---+---+---+---+ \n| A | B | C | D | E | \n+---+---+---+---+---+\n";
+		for (int i = 0; i < 5; i++)
+		{
+			result = result + "| " + diceArray[i] + " ";
+		}
+		result = result + "|\n+---+---+---+---+---+ \n";
+		return result;
+	}
+
+
 	/**
 	 * rollSelectedDice - takes a string and goes letter by letter; if a
 	 * letter is in the range A-E, it randomizes the corresponding die.
@@ -106,9 +118,7 @@ public class Board {
 	 */
 	public int[] getFrequencies()
 	{
-		int [] result = valueArray; // I just put this in here to compile - you can replace it.
-
-		return result;
+		return valueArray;
 	}
 	
 	/**

@@ -63,6 +63,7 @@ public class Referee {
 			System.out.println(player0Name+" It's your turn.");
 			rollAllDice();
 			System.out.println(Arrays.toString(theBoard.getFrequencies()));
+			System.out.println(theBoard.toString());
 			gameisplaying = false;
 		}
 
