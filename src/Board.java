@@ -63,8 +63,27 @@ public class Board {
 		for (int i=0; i<stringToParse.length(); i++)
 		{
 			String letter = stringToParse.substring(i, i+1);
-			// TODO: write code here to look at "letter" and based on it, 
-			//       decide whether to re-roll one of the dice.
+
+			if(letter.equals("A") || letter.equals("a"))
+			{
+				diceArray[0] = (int) (Math.random()*6 + 1);
+			}
+			if(letter.equals("B") || letter.equals("b"))
+			{
+				diceArray[1] = (int) (Math.random()*6 + 1);
+			}
+			if(letter.equals("C") || letter.equals("c"))
+			{
+				diceArray[2] = (int) (Math.random()*6 + 1);
+			}
+			if(letter.equals("D") || letter.equals("d"))
+			{
+				diceArray[3] = (int) (Math.random()*6 + 1);
+			}
+			if(letter.equals("E") || letter.equals("e"))
+			{
+				diceArray[4] = (int) (Math.random()*6 + 1);
+			}
 		}
 	
 	}
