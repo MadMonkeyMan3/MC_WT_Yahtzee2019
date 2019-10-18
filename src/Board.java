@@ -1,3 +1,5 @@
+import java.util.function.ToDoubleBiFunction;
+
 /**
  *  This class represents the dice on the board. It allows the user to
  *  reroll certain dice, and it calculates the score for a given category.
@@ -119,7 +121,7 @@ public class Board {
 	 * Although some simple categories can be handled here, I'd suggest you write a
 	 * sub-method for each of the complicated ones (or just for each of all of them) to
 	 * perform this calculation, rather than a single, 100+ line method! 
-	 * @param - category. This is an integer. However, rather than putting code numbers 
+	 * @param - category. This is an integer. However, rather than putting code numbers
 	 *   in your code, it will be more readable if you use well-named constants.
 	 *   I would refer you to the public final variables in the ScoreCard class - it
 	 *   will be easier to read than the code numbers, themselves. (See the example below.)
@@ -135,7 +137,102 @@ public class Board {
 	 *    •getScoreForCategory(ScoreCard.FULL_HOUSE) would return 25.
 	 *    •getScoreForCategory(ScoreCard.LARGE_STRAIGHT) would return 0.
 	 */
-	// TODO: Write Board's getScoreForCategory method.
+	// TODO: Test Board's getScoreForCategory method.
+	public int getScoreForCategory(int category)
+	{
+		int result = 0;
+		if(category >= ScoreCard.ONES && category <= ScoreCard.SIXES)
+		{
+			return(valueArray[category+1] * (category+1));
+		}
+		else if(category == ScoreCard.THREE_OF_A_KIND || category == ScoreCard.FOUR_OF_A_KIND)
+		{
+			for(int i = 1; i <=6; i++)
+			{
+				if(valueArray[i] == 3 || valueArray[i] == 4)
+				{
+					return(i * valueArray[i]);
+				}
+			}
+		}
+		else if(category == ScoreCard.FULL_HOUSE && isFullHouse())
+		{
+			return(25);
+		}
+		else if(category == ScoreCard.SMALL_STRAIGHT && isStraight() >= 4)
+		{
+			return(30);
+		}
+		else if(category == ScoreCard.LARGE_STRAIGHT && isStraight() >= 5)
+		{
+			return(40);
+		}
+		else if(category == ScoreCard.YAHTZEE)
+		{
+			for(int i = 0; i < valueArray.length; i++)
+			{
+				if(valueArray[i] == 5)
+				{
+					return(50);
+				}
+			}
+		}
+		else if(category == ScoreCard.CHANCE)
+		{
+			for(int i = 0; i < diceArray.length; i++)
+			{
+				result = result + diceArray[i];
+			}
+			return result;
+		}
+		else if(category < -1 || category > 12)
+		{
+			return -1;
+		}
+		return 0;
+	}
+
+	public int isStraight()
+	{
+		int straight = 0;
+		for(int i = 0; i < valueArray.length; i++)
+		{
+			if(valueArray[i] > 0)
+			{
+				straight++;
+			}
+			else
+			{
+				straight = 0;
+			}
+		}
+		return straight;
+	}
+
+	public boolean isFullHouse()
+	{
+		boolean isThree = false;
+		boolean isTwo = false;
+		for(int i = 0; i < valueArray.length; i++)
+		{
+			if(valueArray[i] == 3)
+			{
+				isThree = true;
+			}
+			else if(valueArray[i] == 2)
+			{
+				isTwo = true;
+			}
+		}
+		if(isTwo && isThree)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 	
 	/**
 	 * gets the list of die frequencies calculated in the updateFrequencies() method.
