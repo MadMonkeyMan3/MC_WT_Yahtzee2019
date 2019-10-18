@@ -137,7 +137,7 @@ public class Board {
 	 *    •getScoreForCategory(ScoreCard.FULL_HOUSE) would return 25.
 	 *    •getScoreForCategory(ScoreCard.LARGE_STRAIGHT) would return 0.
 	 */
-	// TODO: Write Board's getScoreForCategory method.
+	// TODO: Test Board's getScoreForCategory method.
 	public int getScoreForCategory(int category)
 	{
 		int result = 0;
