@@ -185,6 +185,10 @@ public class Board {
 			}
 			return result;
 		}
+		else if(category < -1 || category > 12)
+		{
+			return -1;
+		}
 		return 0;
 	}
 
