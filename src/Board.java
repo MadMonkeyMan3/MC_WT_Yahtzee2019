@@ -162,10 +162,29 @@ public class Board {
 		return result;
 	}
 
-	//TODO make this work
 	public boolean isFullHouse()
 	{
-		return false;
+		boolean isThree = false;
+		boolean isTwo = false;
+		for(int i = 0; i < valueArray.length; i++)
+		{
+			if(valueArray[i] == 3)
+			{
+				isThree = true;
+			}
+			else if(valueArray[i] == 2)
+			{
+				isTwo = true;
+			}
+		}
+		if(isTwo && isThree)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	
 	/**
