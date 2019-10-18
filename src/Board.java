@@ -119,7 +119,7 @@ public class Board {
 	 * Although some simple categories can be handled here, I'd suggest you write a
 	 * sub-method for each of the complicated ones (or just for each of all of them) to
 	 * perform this calculation, rather than a single, 100+ line method! 
-	 * @param - category. This is an integer. However, rather than putting code numbers 
+	 * @param - category. This is an integer. However, rather than putting code numbers
 	 *   in your code, it will be more readable if you use well-named constants.
 	 *   I would refer you to the public final variables in the ScoreCard class - it
 	 *   will be easier to read than the code numbers, themselves. (See the example below.)
@@ -136,6 +136,15 @@ public class Board {
 	 *    •getScoreForCategory(ScoreCard.LARGE_STRAIGHT) would return 0.
 	 */
 	// TODO: Write Board's getScoreForCategory method.
+	public int getScoreForCategory(int category)
+	{
+		int result = 0;
+		if(category >= ScoreCard.ONES && category <= ScoreCard.SIXES)
+		{
+			result = valueArray[category+1] * (category+1);
+		}
+		return result;
+	}
 	
 	/**
 	 * gets the list of die frequencies calculated in the updateFrequencies() method.
