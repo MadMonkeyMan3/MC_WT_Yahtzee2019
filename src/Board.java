@@ -1,3 +1,5 @@
+import java.util.function.ToDoubleBiFunction;
+
 /**
  *  This class represents the dice on the board. It allows the user to
  *  reroll certain dice, and it calculates the score for a given category.
@@ -153,7 +155,17 @@ public class Board {
 				}
 			}
 		}
+		else if(isFullHouse())
+		{
+			result = 25;
+		}
 		return result;
+	}
+
+	//TODO make this work
+	public boolean isFullHouse()
+	{
+		return false;
 	}
 	
 	/**
