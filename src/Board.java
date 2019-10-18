@@ -143,6 +143,16 @@ public class Board {
 		{
 			result = valueArray[category+1] * (category+1);
 		}
+		else if(category == ScoreCard.THREE_OF_A_KIND || category == ScoreCard.FOUR_OF_A_KIND)
+		{
+			for(int i = 1; i <=6; i++)
+			{
+				if(valueArray[i] == 3 || valueArray[i] == 4)
+				{
+					result = i * valueArray[i];
+				}
+			}
+		}
 		return result;
 	}
 	
