@@ -12,8 +12,9 @@ public class Referee {
 	private Scanner keyReader = new Scanner(System.in);
 	private ScoreCard[] myScoreCards; // one for each player
 	private Board theBoard;
-
-	private String player0Name, player1Name;
+	private ScoreCard ScoreCard1 ;
+	private ScoreCard ScoreCard2 ;
+	private String player0Name, player1Name, Score;
 
 	/**
 	 * constructor - set up the Referee class
@@ -53,13 +54,15 @@ public class Referee {
 	 */
 	public void playGame()
 	{
-		System.out.println("Game is playing");// placeholder code.
+		System.out.println("Welcome to Yahtzee! Please refer to these categories when scoring, \n 'ones' 'twos' 'threes' 'fours' 'fives' 'sixes' '3 of a kind' '4 of a kind' 'full house' 'sm straight' 'lg straight' \n 'chance' (this will add up all your dice and dosen't have a list of requirements ) and of course, 'yahtzee'  ") ;// placeholder code.
+		// maybe some instructions right here
 		System.out.print("Player 0, what is your name? ");
 		player0Name = keyReader.nextLine();
 		System.out.print("Player 1, what is your name? ");
 		player1Name = keyReader.nextLine();
 		boolean gameisplaying = true;
 		boolean turnisplaying = true;
+
 		while(gameisplaying)
 		{
 		    int turncounter = 0;
@@ -70,14 +73,27 @@ public class Referee {
 
 			while(turnisplaying && turncounter < 2 )
 			{
+
                 System.out.println("Which dice would you like to roll?");
                 theBoard.rollSelectedDice(keyReader.nextLine());
                 System.out.println("Your Roll was \n" + (theBoard.toString()));
                 turncounter = turncounter + 1;
+				if (turncounter <2)
+				{
+					System.out.println("Would You like to score this roll? (y/n)");
+				}
+				Score = keyReader.nextLine();
+				if(Score.equalsIgnoreCase("y") || turncounter == 0)
+				{
+					System.out.println("How would you like to score this?");
+					String scoreInput;
+					scoreInput = "ScoreCard." +keyReader.nextLine();
+					System.out.println(scoreInput);
+					theBoard.getScoreForCategory(ScoreCard.ONES);
+				}
 
             }
 
-			System.out.println("How would you like to score this?");
 
 		}
 
