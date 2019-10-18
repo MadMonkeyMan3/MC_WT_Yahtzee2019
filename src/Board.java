@@ -143,7 +143,7 @@ public class Board {
 		int result = 0;
 		if(category >= ScoreCard.ONES && category <= ScoreCard.SIXES)
 		{
-			result = valueArray[category+1] * (category+1);
+			return(valueArray[category+1] * (category+1));
 		}
 		else if(category == ScoreCard.THREE_OF_A_KIND || category == ScoreCard.FOUR_OF_A_KIND)
 		{
@@ -151,15 +151,58 @@ public class Board {
 			{
 				if(valueArray[i] == 3 || valueArray[i] == 4)
 				{
-					result = i * valueArray[i];
+					return(i * valueArray[i]);
 				}
 			}
 		}
-		else if(isFullHouse())
+		else if(category == ScoreCard.FULL_HOUSE && isFullHouse())
 		{
-			result = 25;
+			return(25);
 		}
-		return result;
+		else if(category == ScoreCard.SMALL_STRAIGHT && isStraight() >= 4)
+		{
+			return(30);
+		}
+		else if(category == ScoreCard.LARGE_STRAIGHT && isStraight() >= 5)
+		{
+			return(40);
+		}
+		else if(category == ScoreCard.YAHTZEE)
+		{
+			for(int i = 0; i < valueArray.length; i++)
+			{
+				if(valueArray[i] == 5)
+				{
+					return(50);
+				}
+			}
+		}
+		else if(category == ScoreCard.CHANCE)
+		{
+			for(int i = 0; i < diceArray.length; i++)
+			{
+				result = result + diceArray[i];
+			}
+			return result;
+		}
+		return 0;
+	}
+
+	public int isStraight()
+	{
+		int straight = 0;
+		for(int i = 0; i < valueArray.length; i++)
+		{
+			if(valueArray[i] > 0)
+			{
+				straight++;
+			}
+			else
+			{
+				straight = 0;
+			}
+		}
+		return straight;
 	}
 
 	public boolean isFullHouse()

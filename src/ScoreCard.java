@@ -54,7 +54,7 @@ public class ScoreCard {
 	{
 		//--------------------
 
-		Scores = new int[] {0,0,0,0,0,0,0,0,0,0,0,0,0};
+		Scores = new int[] {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};
 		
 		//--------------------
 	}
@@ -68,7 +68,7 @@ public class ScoreCard {
 	{
 		boolean empty = true;
 		//--------------------
-		if (Scores[category] != 0)
+		if (Scores[category] != -1)
 		{
 			empty = false;
 		}
