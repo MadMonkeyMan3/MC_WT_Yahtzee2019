@@ -68,7 +68,7 @@ public class Referee {
 			System.out.println("Your Roll was \n"+ (theBoard.toString()));
 
 
-			while(turnisplaying && turncounter < 3 )
+			while(turnisplaying && turncounter < 2 )
 			{
                 System.out.println("Which dice would you like to roll?");
                 theBoard.rollSelectedDice(keyReader.nextLine());
@@ -77,7 +77,7 @@ public class Referee {
 
             }
 
-
+			System.out.println("How would you like to score this?");
 
 		}
 
