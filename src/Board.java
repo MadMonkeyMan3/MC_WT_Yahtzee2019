@@ -125,6 +125,7 @@ public class Board {
 	 *   in your code, it will be more readable if you use well-named constants.
 	 *   I would refer you to the public final variables in the ScoreCard class - it
 	 *   will be easier to read than the code numbers, themselves. (See the example below.)
+	 * @param category
 	 * @return how many points should be awarded, based on the dice and the
 	 *   category selected.
 	 *   For example: 
