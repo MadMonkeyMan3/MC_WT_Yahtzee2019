@@ -71,17 +71,17 @@ public class Referee {
 			System.out.println("Your Roll was \n"+ (theBoard.toString()));
 
 
-			while(turnisplaying && turncounter < 2 )
+			while(turnisplaying && turncounter < 3 )
 			{
 
 
                 turncounter = turncounter + 1;
-				if (turncounter < 2)
+				if (turncounter < 3)
 				{
 					System.out.println("Would You like to score this roll? (y/n)");
 				}
 				Score = keyReader.nextLine();
-				if(Score.equalsIgnoreCase("y") || turncounter == 2)
+				if(Score.equalsIgnoreCase("y") || turncounter == 3)
 				{
 					System.out.println("How would you like to score this?");
 					String scoreInput;
@@ -125,19 +125,19 @@ public class Referee {
 					}
 					if(scoreInput.equalsIgnoreCase("Small Straight"))
 					{
-						theBoard.getScoreForCategory(ScoreCard.SMALL_STRAIGHT);
+						ScoreCard1.setScoreForCategory(ScoreCard.SMALL_STRAIGHT);
 					}
 					if(scoreInput.equalsIgnoreCase("Large Straight"))
 					{
-						theBoard.getScoreForCategory(ScoreCard.LARGE_STRAIGHT);
+						theBoard.setScoreForCategory(ScoreCard.LARGE_STRAIGHT);
 					}
 					if(scoreInput.equalsIgnoreCase("Chance"))
 					{
-						theBoard.getScoreForCategory(ScoreCard.CHANCE);
+						theBoard.setScoreForCategory(ScoreCard.CHANCE);
 					}
 					if(scoreInput.equalsIgnoreCase("Yahtzee"))
 					{
-						theBoard.getScoreForCategory(ScoreCard.YAHTZEE);
+						theBoard.setScoreForCategory(ScoreCard.YAHTZEE);
 					}
 				}
 				System.out.println("Which dice would you like to roll?");
