@@ -56,95 +56,49 @@ public class Referee {
 	{
 		System.out.println("Welcome to Yahtzee! Please refer to these categories when scoring, \n 'ones' 'twos' 'threes' 'fours' 'fives' 'sixes' '3 of a kind' '4 of a kind' 'full house' 'sm straight' 'lg straight' \n 'chance' (this will add up all your dice and dosen't have a list of requirements ) and of course, 'yahtzee'  ") ;// placeholder code.
 		// maybe some instructions right here
-		System.out.print("Player 0, what is your name? ");
-		player0Name = keyReader.nextLine();
 		System.out.print("Player 1, what is your name? ");
+		player0Name = keyReader.nextLine();
+		System.out.print("Player 2, what is your name? ");
 		player1Name = keyReader.nextLine();
+		myScoreCards = new ScoreCard[]{new ScoreCard(), new ScoreCard()};
 		boolean gameisplaying = true;
-		boolean turnisplaying = true;
+		int turn = 0;
+		String currentName = player0Name;
 
 		while(gameisplaying)
 		{
-		    int turncounter = 0;
-			System.out.println(player0Name+" It's your turn.");
 			rollAllDice();
-			System.out.println("Your Roll was \n"+ (theBoard.toString()));
-
-
-			while(turnisplaying && turncounter < 3 )
+			int rounds = 0;
+			System.out.println("It is "+currentName+"'s turn.");
+			while(rounds < 3)
 			{
-
-
-                turncounter = turncounter + 1;
-				if (turncounter < 3)
+				rounds++;
+				System.out.println("Your Roll was:\n"+theBoard.toString());
+				System.out.println("Do you want to Roll? (y/n)");
+				String answer = keyReader.nextLine();
+				if(answer.equalsIgnoreCase("n"))
 				{
-					System.out.println("Would You like to score this roll? (y/n)");
+					rounds = 3;
+					break;
 				}
-				Score = keyReader.nextLine();
-				if(Score.equalsIgnoreCase("y") || turncounter == 3)
+				if(answer.equalsIgnoreCase("y"))
 				{
-					System.out.println("How would you like to score this?");
-					String scoreInput;
-					scoreInput = "ScoreCard." +keyReader.nextLine();
-					System.out.println(scoreInput);
-					if(scoreInput.equalsIgnoreCase("Ones"))
-					{
-						theBoard.getScoreForCategory(ScoreCard.ONES);
-					}
-					if(scoreInput.equalsIgnoreCase("Twos"))
-					{
-						theBoard.getScoreForCategory(ScoreCard.TWOS);
-					}
-					if(scoreInput.equalsIgnoreCase("Threes"))
-					{
-						theBoard.getScoreForCategory(ScoreCard.THREES);
-					}
-					if(scoreInput.equalsIgnoreCase("Fours"))
-					{
-						theBoard.getScoreForCategory(ScoreCard.FOURS);
-					}
-					if(scoreInput.equalsIgnoreCase("Fives"))
-					{
-						theBoard.getScoreForCategory(ScoreCard.TWOS);
-					}
-					if(scoreInput.equalsIgnoreCase("Sixes"))
-					{
-						theBoard.getScoreForCategory(ScoreCard.SIXES);
-					}
-					if(scoreInput.equalsIgnoreCase("3 Of a Kind"))
-					{
-						theBoard.getScoreForCategory(ScoreCard.THREE_OF_A_KIND);
-					}
-					if(scoreInput.equalsIgnoreCase("4 of a kind"))
-					{
-						theBoard.getScoreForCategory(ScoreCard.FOUR_OF_A_KIND);
-					}
-					if(scoreInput.equalsIgnoreCase("Full House"))
-					{
-						theBoard.getScoreForCategory(ScoreCard.FULL_HOUSE);
-					}
-					if(scoreInput.equalsIgnoreCase("Small Straight"))
-					{
-						ScoreCard1.setScoreForCategory(ScoreCard.SMALL_STRAIGHT);
-					}
-					if(scoreInput.equalsIgnoreCase("Large Straight"))
-					{
-						theBoard.setScoreForCategory(ScoreCard.LARGE_STRAIGHT);
-					}
-					if(scoreInput.equalsIgnoreCase("Chance"))
-					{
-						theBoard.setScoreForCategory(ScoreCard.CHANCE);
-					}
-					if(scoreInput.equalsIgnoreCase("Yahtzee"))
-					{
-						theBoard.setScoreForCategory(ScoreCard.YAHTZEE);
-					}
+					System.out.println("Which dice do you want to roll? (Pick any: A/B/C/D/E)");
+					rollDice(keyReader.nextLine());
 				}
-				System.out.println("Which dice would you like to roll?");
-				System.out.println("Your Roll was \n" + (theBoard.toString()));
-            }
 
+			}
 
+			if(turn == 0)
+			{
+				turn = 1;
+				currentName = player1Name;
+			}
+			else if(turn == 1)
+			{
+				turn = 0;
+				currentName = player0Name;
+			}
 		}
 
 	}
