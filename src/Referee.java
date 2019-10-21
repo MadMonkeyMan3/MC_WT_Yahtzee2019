@@ -81,7 +81,7 @@ public class Referee {
 					System.out.println("Would You like to score this roll? (y/n)");
 				}
 				Score = keyReader.nextLine();
-				if(Score.equalsIgnoreCase("y") || turncounter == 0)
+				if(Score.equalsIgnoreCase("y") || turncounter == 2)
 				{
 					System.out.println("How would you like to score this?");
 					String scoreInput;
@@ -139,12 +139,9 @@ public class Referee {
 					{
 						theBoard.getScoreForCategory(ScoreCard.YAHTZEE);
 					}
-					
-					System.out.println("Which dice would you like to roll?");
-					theBoard.rollSelectedDice(keyReader.nextLine());
-					System.out.println("Your Roll was \n" + (theBoard.toString()));
 				}
-
+				System.out.println("Which dice would you like to roll?");
+				System.out.println("Your Roll was \n" + (theBoard.toString()));
             }
 
 
