@@ -74,11 +74,9 @@ public class Referee {
 			while(turnisplaying && turncounter < 2 )
 			{
 
-                System.out.println("Which dice would you like to roll?");
-                theBoard.rollSelectedDice(keyReader.nextLine());
-                System.out.println("Your Roll was \n" + (theBoard.toString()));
+
                 turncounter = turncounter + 1;
-				if (turncounter <2)
+				if (turncounter < 2)
 				{
 					System.out.println("Would You like to score this roll? (y/n)");
 				}
@@ -89,7 +87,62 @@ public class Referee {
 					String scoreInput;
 					scoreInput = "ScoreCard." +keyReader.nextLine();
 					System.out.println(scoreInput);
-					theBoard.getScoreForCategory(ScoreCard.ONES);
+					if(scoreInput.equalsIgnoreCase("Ones"))
+					{
+						theBoard.getScoreForCategory(ScoreCard.ONES);
+					}
+					if(scoreInput.equalsIgnoreCase("Twos"))
+					{
+						theBoard.getScoreForCategory(ScoreCard.TWOS);
+					}
+					if(scoreInput.equalsIgnoreCase("Threes"))
+					{
+						theBoard.getScoreForCategory(ScoreCard.THREES);
+					}
+					if(scoreInput.equalsIgnoreCase("Fours"))
+					{
+						theBoard.getScoreForCategory(ScoreCard.FOURS);
+					}
+					if(scoreInput.equalsIgnoreCase("Fives"))
+					{
+						theBoard.getScoreForCategory(ScoreCard.TWOS);
+					}
+					if(scoreInput.equalsIgnoreCase("Sixes"))
+					{
+						theBoard.getScoreForCategory(ScoreCard.SIXES);
+					}
+					if(scoreInput.equalsIgnoreCase("3 Of a Kind"))
+					{
+						theBoard.getScoreForCategory(ScoreCard.THREE_OF_A_KIND);
+					}
+					if(scoreInput.equalsIgnoreCase("4 of a kind"))
+					{
+						theBoard.getScoreForCategory(ScoreCard.FOUR_OF_A_KIND);
+					}
+					if(scoreInput.equalsIgnoreCase("Full House"))
+					{
+						theBoard.getScoreForCategory(ScoreCard.FULL_HOUSE);
+					}
+					if(scoreInput.equalsIgnoreCase("Small Straight"))
+					{
+						theBoard.getScoreForCategory(ScoreCard.SMALL_STRAIGHT);
+					}
+					if(scoreInput.equalsIgnoreCase("Large Straight"))
+					{
+						theBoard.getScoreForCategory(ScoreCard.LARGE_STRAIGHT);
+					}
+					if(scoreInput.equalsIgnoreCase("Chance"))
+					{
+						theBoard.getScoreForCategory(ScoreCard.CHANCE);
+					}
+					if(scoreInput.equalsIgnoreCase("Yahtzee"))
+					{
+						theBoard.getScoreForCategory(ScoreCard.YAHTZEE);
+					}
+					
+					System.out.println("Which dice would you like to roll?");
+					theBoard.rollSelectedDice(keyReader.nextLine());
+					System.out.println("Your Roll was \n" + (theBoard.toString()));
 				}
 
             }
