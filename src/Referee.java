@@ -1,4 +1,6 @@
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 /**
  * The Referee class is in charge of keeping track of the Board (the dice)
@@ -74,21 +76,35 @@ public class Referee {
 			{
 				rounds++;
 				System.out.println("Your Roll was:\n"+theBoard.toString());
-				System.out.println("Do you want to Roll? (y/n)");
-				String answer = keyReader.nextLine();
-				
-				if(answer.equalsIgnoreCase("n"))
-				{
-					rounds = 3;
-					break;
+				String answer;
+				do {
+					System.out.println("Do you want to Roll? (y/n)");
+					answer = keyReader.nextLine();
+					if (answer.equalsIgnoreCase("n")) {
+						rounds = 3;
+						break;
+					}
+					if (answer.equalsIgnoreCase("y")) {
+						System.out.println("Which dice do you want to roll? (Pick any: A/B/C/D/E)");
+						rollDice(keyReader.nextLine());
+					}
 				}
-				if(answer.equalsIgnoreCase("y"))
-				{
-					System.out.println("Which dice do you want to roll? (Pick any: A/B/C/D/E)");
-					rollDice(keyReader.nextLine());
-				}
-
+				while(!answer.equalsIgnoreCase("y")&&!answer.equalsIgnoreCase("n"));
 			}
+
+			System.out.println("Your Roll is:");
+			System.out.println(theBoard);
+			System.out.println("Your Score is:");
+			System.out.println(myScoreCards[turn]);
+			System.out.println("Which score should this be?");
+			String score;
+
+			score = keyReader.nextLine();
+
+			scoreRolls(score, turn);
+
+			System.out.println("Your Score is now:");
+			System.out.println(myScoreCards[turn]);
 
 			if(turn == 0)
 			{
@@ -102,6 +118,28 @@ public class Referee {
 			}
 		}
 
+	}
+
+	public void scoreRolls(String Score, int turn)
+	{
+		//I just figured this out from StackOverflow lol.
+		Map<String, Integer> scores = new HashMap<>();
+		scores.put("ONES", ScoreCard.ONES);
+		scores.put("TWOS", ScoreCard.TWOS);
+		scores.put("THREES", ScoreCard.THREES);
+		scores.put("FOURS", ScoreCard.FOURS);
+		scores.put("FIVES", ScoreCard.FIVES);
+		scores.put("SIXES", ScoreCard.SIXES);
+		scores.put("SMALL STRAIGHT", ScoreCard.SMALL_STRAIGHT);
+		scores.put("LARGE STRAIGHT", ScoreCard.LARGE_STRAIGHT);
+		scores.put("FULL HOUSE", ScoreCard.FULL_HOUSE);
+		scores.put("THREE OF A KIND", ScoreCard.THREE_OF_A_KIND);
+		scores.put("FOUR OF A KIND", ScoreCard.FOUR_OF_A_KIND);
+		scores.put("CHANCE", ScoreCard.CHANCE);
+		scores.put("YAHTZEE", ScoreCard.YAHTZEE);
+
+		int calcScore = theBoard.getScoreForCategory(scores.get(Score));
+		myScoreCards[turn].setScoreForCategory(calcScore, scores.get(Score));
 	}
 
 	/**

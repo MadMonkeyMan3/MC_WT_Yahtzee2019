@@ -144,7 +144,7 @@ public class Board {
 		int result = 0;
 		if(category >= ScoreCard.ONES && category <= ScoreCard.SIXES)
 		{
-			return(valueArray[category+1] * (category+1));
+			return(valueArray[category+1] * (category + 1));
 		}
 		else if(category == ScoreCard.THREE_OF_A_KIND || category == ScoreCard.FOUR_OF_A_KIND)
 		{
@@ -160,11 +160,11 @@ public class Board {
 		{
 			return(25);
 		}
-		else if(category == ScoreCard.SMALL_STRAIGHT && isStraight() >= 4)
+		else if(category == ScoreCard.SMALL_STRAIGHT && isStraight() == 4)
 		{
 			return(30);
 		}
-		else if(category == ScoreCard.LARGE_STRAIGHT && isStraight() >= 5)
+		else if(category == ScoreCard.LARGE_STRAIGHT && isStraight() == 5)
 		{
 			return(40);
 		}
