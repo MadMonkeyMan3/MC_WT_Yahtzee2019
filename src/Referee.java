@@ -76,6 +76,7 @@ public class Referee {
 				System.out.println("Your Roll was:\n"+theBoard.toString());
 				System.out.println("Do you want to Roll? (y/n)");
 				String answer = keyReader.nextLine();
+				
 				if(answer.equalsIgnoreCase("n"))
 				{
 					rounds = 3;
