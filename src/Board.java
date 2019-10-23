@@ -100,16 +100,17 @@ public class Board {
 	public void updateFrequencyList()
 	{
 		// ---------------------------
-		for(int i = 1; i < 7; i++)
+		for(int i = 1; i < valueArray.length; i++)
         {
-            for(int j = 0; j < 5; i++)
+            for(int j = 0; j < diceArray.length; j++)
             {
                 if(diceArray[j] == i)
                 {
-                    valueArray[i] = valueArray[i] + 1;
+                    valueArray[j] = valueArray[j] + 1;
                 }
             }
         }
+		System.out.println(valueArray[4]);
 		
 		// ---------------------------
 	}
