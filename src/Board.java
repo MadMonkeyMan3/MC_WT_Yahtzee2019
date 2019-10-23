@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.function.ToDoubleBiFunction;
 
 /**
@@ -106,7 +107,7 @@ public class Board {
             {
                 if(diceArray[j] == i)
                 {
-                    valueArray[j] = valueArray[j] + 1;
+                    valueArray[i] = valueArray[i]+1;
                 }
             }
         }
