@@ -159,6 +159,10 @@ public class Referee {
 		scores.put("YAHTZEE", ScoreCard.YAHTZEE);
 
 		int calcScore = theBoard.getScoreForCategory(scores.get(Score));
+		if(myScoreCards[turn].getScoreForCategory(ScoreCard.YAHTZEE) > 0)
+		{
+			calcScore = myScoreCards[turn].getScoreForCategory(ScoreCard.YAHTZEE) + 100;
+		}
 		myScoreCards[turn].setScoreForCategory(calcScore, scores.get(Score));
 	}
 
