@@ -66,22 +66,23 @@ public class Referee {
 		boolean gameisplaying = true;
 		int turn = 0;
 		String currentName = player0Name;
+		int round = 1;
 
 		while(gameisplaying)
 		{
 			rollAllDice();
-			int rounds = 0;
+			int rolls = 0;
 			System.out.println("It is "+currentName+"'s turn.");
-			while(rounds < 3)
+			while(rolls < 3)
 			{
-				rounds++;
+				rolls++;
 				System.out.println("Your Roll was:\n"+theBoard.toString());
 				String answer;
 				do {
 					System.out.println("Do you want to Roll? (y/n)");
 					answer = keyReader.nextLine();
 					if (answer.equalsIgnoreCase("n")) {
-						rounds = 3;
+						rolls = 3;
 						break;
 					}
 					if (answer.equalsIgnoreCase("y")) {
@@ -106,6 +107,11 @@ public class Referee {
 			System.out.println("Your Score is now:");
 			System.out.println(myScoreCards[turn]);
 
+			if(round == 13)
+			{
+				gameisplaying = false;
+			}
+
 			if(turn == 0)
 			{
 				turn = 1;
@@ -115,9 +121,23 @@ public class Referee {
 			{
 				turn = 0;
 				currentName = player0Name;
+				round++;
 			}
 		}
-
+		System.out.println(player0Name+"'s score is:"+myScoreCards[0].toString());
+		System.out.println(player1Name+"'s score is:"+myScoreCards[1].toString());
+		if (myScoreCards[0].getTotal() > myScoreCards[1].getTotal())
+		{
+			System.out.println(player0Name+" wins!");
+		}
+		else if (myScoreCards[1].getTotal() > myScoreCards[0].getTotal())
+		{
+			System.out.println(player1Name+" wins!");
+		}
+		else
+		{
+			System.out.println("It's a tie!");
+		}
 	}
 
 	public void scoreRolls(String Score, int turn)
