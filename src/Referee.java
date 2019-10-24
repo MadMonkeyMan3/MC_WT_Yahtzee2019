@@ -76,7 +76,7 @@ public class Referee {
 			rollAllDice();
 			int rolls = 0;
 			System.out.println("It is "+currentName+"'s turn.");
-			while(rolls < 3)
+			while(rolls < 2)
 			{
 				rolls++;
 				System.out.println("Your Roll was:\n"+theBoard.toString());

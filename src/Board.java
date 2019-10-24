@@ -163,11 +163,11 @@ public class Board {
 		{
 			return(25);
 		}
-		else if(category == ScoreCard.SMALL_STRAIGHT && isStraight() == 4)
+		else if(category == ScoreCard.SMALL_STRAIGHT && isSmallStraight() == 4)
 		{
 			return(30);
 		}
-		else if(category == ScoreCard.LARGE_STRAIGHT && isStraight() == 5)
+		else if(category == ScoreCard.LARGE_STRAIGHT && isLargeStraight() == 5)
 		{
 			return(40);
 		}
@@ -196,7 +196,26 @@ public class Board {
 		return 0;
 	}
 
-	public int isStraight()
+	public int isSmallStraight()
+	{
+		int straight = 0;
+		for(int i = 0; i < valueArray.length; i++)
+		{
+			if(straight != 4)
+			{
+				if (valueArray[i] > 0)
+				{
+					straight++;
+				}
+				else
+				{
+					straight = 0;
+				}
+			}
+		}
+		return straight;
+	}
+	public int isLargeStraight()
 	{
 		int straight = 0;
 		for(int i = 0; i < valueArray.length; i++)
