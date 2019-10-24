@@ -124,8 +124,8 @@ public class Referee {
 				round++;
 			}
 		}
-		System.out.println(player0Name+"'s score is:"+myScoreCards[0].toString());
-		System.out.println(player1Name+"'s score is:"+myScoreCards[1].toString());
+		System.out.println(player0Name+"'s score is:\n"+myScoreCards[0].toString());
+		System.out.println(player1Name+"'s score is:\n"+myScoreCards[1].toString());
 		if (myScoreCards[0].getTotal() > myScoreCards[1].getTotal())
 		{
 			System.out.println(player0Name+" wins!");
