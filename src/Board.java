@@ -101,6 +101,7 @@ public class Board {
 	public void updateFrequencyList()
 	{
 		// ---------------------------
+		valueArray = new int[]{-1, 0, 0, 0, 0, 0, 0};
 		for(int i = 1; i < valueArray.length; i++)
         {
             for(int j = 0; j < diceArray.length; j++)
@@ -201,13 +202,16 @@ public class Board {
 		int straight = 0;
 		for(int i = 0; i < valueArray.length; i++)
 		{
-			if(valueArray[i] > 0)
+			if(straight != 5)
 			{
-				straight++;
-			}
-			else
-			{
-				straight = 0;
+				if (valueArray[i] > 0)
+				{
+					straight++;
+				}
+				else
+				{
+					straight = 0;
+				}
 			}
 		}
 		return straight;
