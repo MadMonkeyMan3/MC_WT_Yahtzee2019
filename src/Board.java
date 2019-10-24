@@ -112,7 +112,6 @@ public class Board {
                 }
             }
         }
-		System.out.println(valueArray[4]);
 		
 		// ---------------------------
 	}
