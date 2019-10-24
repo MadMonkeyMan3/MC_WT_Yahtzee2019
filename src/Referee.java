@@ -161,12 +161,12 @@ public class Referee {
 		scores.put("CHANCE", ScoreCard.CHANCE);
 		scores.put("YAHTZEE", ScoreCard.YAHTZEE);
 
-		int calcScore = theBoard.getScoreForCategory(scores.get(Score));
+		int calcScore = theBoard.getScoreForCategory(scores.get(Score.toUpperCase()));
 		if(myScoreCards[turn].getScoreForCategory(ScoreCard.YAHTZEE) > 0)
 		{
 			calcScore = myScoreCards[turn].getScoreForCategory(ScoreCard.YAHTZEE) + 100;
 		}
-		myScoreCards[turn].setScoreForCategory(calcScore, scores.get(Score));
+		myScoreCards[turn].setScoreForCategory(calcScore, scores.get(Score.toUpperCase()));
 	}
 
 	/**
