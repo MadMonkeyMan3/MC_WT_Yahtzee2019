@@ -56,7 +56,10 @@ public class Referee {
 	 */
 	public void playGame()
 	{
-		System.out.println("Welcome to Yahtzee! Please refer to these categories when scoring, \n 'ones' 'twos' 'threes' 'fours' 'fives' 'sixes' '3 of a kind' '4 of a kind' 'full house' 'sm straight' 'lg straight' \n 'chance' (this will add up all your dice and dosen't have a list of requirements ) and of course, 'yahtzee'  ") ;// placeholder code.
+		System.out.println("Welcome to Yahtzee! Please refer to these categories when scoring, \n 'ONES' 'TWOS' 'THREES' " +
+				"'FOURS' 'FIVES' 'SIXES' 'THREE OF A KIND' 'FOUR OF A KIND' 'FULL HOUSE' 'SMALL STRAIGHT'" +
+				" 'LARGE STRAIGHT' \n 'CHANCE' (this will add up all your dice and dosen't have a list of requirements )" +
+				" and of course, 'YAHTZEE'  ") ;// placeholder code.
 		// maybe some instructions right here
 		System.out.print("Player 1, what is your name? ");
 		player0Name = keyReader.nextLine();
