@@ -111,7 +111,12 @@ public class ScoreCard {
 		int subtotal = 0;
 		for (int i = 0; i <=5; i++)
 		{
-			subtotal = subtotal + Scores[i];
+			int scoreAdded = Scores[i];
+			if (scoreAdded == -1)
+			{
+				scoreAdded = 0;
+			}
+			subtotal = subtotal + scoreAdded;
 		}
 		//--------------------
 		return subtotal;
@@ -127,7 +132,12 @@ public class ScoreCard {
 		//--------------------
 		for (int i = 6; i <13; i++)
 		{
-			subtotal = subtotal + Scores[i];
+			int scoreAdded = Scores[i];
+			if (scoreAdded == -1)
+			{
+				scoreAdded = 0;
+			}
+			subtotal = subtotal + scoreAdded;
 		}
 		//--------------------
 		return subtotal;
@@ -174,15 +184,30 @@ public class ScoreCard {
 	public String toString()
 	{
 		String result = "";
+		String scoreForCategory = "";
 		//--------------------
 		for (int i = 0; i <= 5; i ++)
 		{
-			result = result + categories[i]+": "+Scores[i]+"\n";
+			scoreForCategory = "";
+			if(Scores[i] == -1)
+				scoreForCategory = "-";
+			else
+			{
+				scoreForCategory = ""+Scores[i];
+			}
+			result = result + categories[i]+": "+scoreForCategory+"\n";
 		}
 		result = result + "TOP        : "+getTopSubtotal()+"\nTOP BONUS  : "+getTopBonus()+"\n";
 		for (int i = 6; i < 13; i ++)
 		{
-			result = result + categories[i]+": "+Scores[i]+"\n";
+			scoreForCategory = "";
+			if(Scores[i] == -1)
+				scoreForCategory = "-";
+			else
+			{
+				scoreForCategory = ""+Scores[i];
+			}
+			result = result + categories[i]+": "+scoreForCategory+"\n";
 		}
 		result = result + "BOTTOM     : "+getBottomSubtotal()+ "\nTOTAL      : "+getTotal()+"\n";
 		//--------------------
