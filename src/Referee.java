@@ -105,7 +105,17 @@ public class Referee {
 
 			score = keyReader.nextLine();
 
-			scoreRolls(score, turn);
+			while(true)
+			{
+				try{
+					scoreRolls(score, turn);
+					break;
+				}
+				catch(NullPointerException e) {
+					System.out.println("Please input a correct place to put your score.");
+					score = keyReader.nextLine();
+				}
+			}
 
 			System.out.println("Your Score is now:");
 			System.out.println(myScoreCards[turn]);
