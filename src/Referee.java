@@ -24,7 +24,6 @@ public class Referee {
 	public Referee()
 	{
 		//--------------------
-		// TODO: insert your code here.
 		theBoard = new Board();
 		myScoreCards = new ScoreCard[2];
 		//--------------------
