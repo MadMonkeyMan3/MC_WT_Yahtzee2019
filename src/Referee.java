@@ -110,7 +110,7 @@ public class Referee {
 			System.out.println("Your Score is now:");
 			System.out.println(myScoreCards[turn]);
 
-			if(round == 13)
+			if(round == 13 && turn == 1)
 			{
 				gameisplaying = false;
 			}
@@ -162,7 +162,7 @@ public class Referee {
 		scores.put("YAHTZEE", ScoreCard.YAHTZEE);
 
 		int calcScore = theBoard.getScoreForCategory(scores.get(Score.toUpperCase()));
-		if(myScoreCards[turn].getScoreForCategory(ScoreCard.YAHTZEE) > 0)
+		if(scores.get(Score.toUpperCase()) == ScoreCard.YAHTZEE && myScoreCards[turn].getScoreForCategory(ScoreCard.YAHTZEE) > 0 && calcScore !=0)
 		{
 			calcScore = myScoreCards[turn].getScoreForCategory(ScoreCard.YAHTZEE) + 100;
 		}
