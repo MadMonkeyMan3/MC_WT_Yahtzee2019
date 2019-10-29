@@ -100,19 +100,15 @@ public class Referee {
 			System.out.println("Your Score is:");
 			System.out.println(myScoreCards[turn]);
 			System.out.println("Which score should this be?");
-			String score;
-
-			score = keyReader.nextLine();
 
 			while(true)
 			{
 				try{
-					scoreRolls(score, turn);
+					scoreRolls(turn);
 					break;
 				}
 				catch(NullPointerException e) {
 					System.out.println("Please input a correct place to put your score.");
-					score = keyReader.nextLine();
 				}
 			}
 
@@ -152,7 +148,7 @@ public class Referee {
 		}
 	}
 
-	public void scoreRolls(String Score, int turn)
+	public void scoreRolls(int turn)
 	{
 		//I just figured this out from StackOverflow lol.
 		Map<String, Integer> scores = new HashMap<>();
@@ -170,12 +166,24 @@ public class Referee {
 		scores.put("CHANCE", ScoreCard.CHANCE);
 		scores.put("YAHTZEE", ScoreCard.YAHTZEE);
 
-		int calcScore = theBoard.getScoreForCategory(scores.get(Score.toUpperCase()));
-		if(scores.get(Score.toUpperCase()) == ScoreCard.YAHTZEE && myScoreCards[turn].getScoreForCategory(ScoreCard.YAHTZEE) > 0 && calcScore !=0)
+		while(true)
 		{
-			calcScore = myScoreCards[turn].getScoreForCategory(ScoreCard.YAHTZEE) + 100;
+			Score = keyReader.nextLine();
+			if(myScoreCards[turn].categoryIsEmpty(scores.get(Score.toUpperCase())))
+			{
+				int calcScore = theBoard.getScoreForCategory(scores.get(Score.toUpperCase()));
+				if (scores.get(Score.toUpperCase()) == ScoreCard.YAHTZEE && myScoreCards[turn].getScoreForCategory(ScoreCard.YAHTZEE) > 0 && calcScore != 0)
+				{
+					calcScore = myScoreCards[turn].getScoreForCategory(ScoreCard.YAHTZEE) + 100;
+				}
+				myScoreCards[turn].setScoreForCategory(calcScore, scores.get(Score.toUpperCase()));
+				break;
+			}
+			else
+			{
+				System.out.println("That category is full, please pick another one.");
+			}
 		}
-		myScoreCards[turn].setScoreForCategory(calcScore, scores.get(Score.toUpperCase()));
 	}
 
 	/**
