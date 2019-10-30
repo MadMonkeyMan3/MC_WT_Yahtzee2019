@@ -107,7 +107,7 @@ public class Referee {
 					scoreRolls(turn);
 					break;
 				}
-				catch(NullPointerException e) {
+				catch(NullPointerException nPE) {
 					System.out.println("Please input a correct place to put your score.");
 				}
 			}
